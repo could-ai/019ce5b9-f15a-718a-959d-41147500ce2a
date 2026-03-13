@@ -23,11 +23,12 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
     super.dispose();
   }
 
-  void _onSwipe(int previousIndex, int? currentIndex, CardSwiperDirection direction) {
+  bool _onSwipe(int previousIndex, int? currentIndex, CardSwiperDirection direction) {
     if (direction == CardSwiperDirection.right) {
       widget.onSave(destinations[previousIndex]);
     }
     // Left swipe does nothing (skip)
+    return true; // Return true to allow the swipe animation to complete
   }
 
   @override
